@@ -1,18 +1,7 @@
 <?php
-
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$db_name = "cscb20";
-
-//Create connection
-$conn = new mysqli($servername, $username, $password, $db_name);
-
-//Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-// If connection is successful
-echo "Connection successful";
-
+   define('DB_SERVER', 'localhost');
+   define('DB_USERNAME', 'root');
+   define('DB_PASSWORD', 'root');
+   define('DB_DATABASE', 'cscb20');
+   $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 ?>
