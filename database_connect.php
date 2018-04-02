@@ -9,5 +9,5 @@
      die('Connection Failed: '.mysqli_connect_error());
    }
    //mainly for debudding purposes
-   echo "Connection Successful";
+   //echo "Connection Successful";
 ?>
