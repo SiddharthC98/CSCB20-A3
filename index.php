@@ -99,7 +99,9 @@
       <br>
       <br>
       <label><strong>Type of User (Instructor/TA/Student):</strong></label> <br>
-      <input type="text" name="type">
+      <input type="radio" name="type" value="student" checked>Student<br>
+      <input type="radio" name="type" value="professor">Professor<br>
+      <input type="radio" name="type" value="TA">TA<br>
       <br>
       <input type="submit" value="Log In">
       <div style = "font-size:13px; color:white; margin-top:20px"><?php echo $error; ?></div>

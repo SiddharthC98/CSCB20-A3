@@ -24,9 +24,13 @@ create table marks(
     );
     
 create table anonFeedback(
-	q1 varchar(500),
-    q2 varchar(500),
-    q3 varchar(500),
-    q4 varchar(500)
+	q1 TEXT,
+    q2 TEXT,
+    q3 TEXT,
+    q4 TEXT
     );
+drop table anonFeedback;
 
+insert into anonFeedback(q1,q2,q3,q4) values 
+	("hi", "makes fun of the goddess’s enthusiastic drinking. Ceres splashes her drink at the boy who metamorphoses into a creature with a 'body starred with many coloured spots', in other words, a spotted newt. The reason for the difference in punishments between Homer and Ovid’s poems can be attributed to the main theme of their respective collection of poems. The Homeric Hymns chooses to focus more on the worship of the Olympic gods and explain the rituals associated with them whereas Ovid is more fixed on the metamorphoses aspect of mythology.", "hi2", "h3i");
+    
