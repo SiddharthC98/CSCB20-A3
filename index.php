@@ -7,6 +7,7 @@
 
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']);
+      $mytype = mysqli_real_escape_string($db,$_POST['type']);
 
       $sql = "SELECT id FROM logininfo WHERE username = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db,$sql);
@@ -16,10 +17,11 @@
       // If result matched $myusername and $mypassword, table row must be 1 row
 
       if($count == 1) {
-         $_SESSION['login_user'] = $myusername;
-         header("Location: welcome.php");
+        $_SESSION['login_user'] = $myusername;
+        header("Location: InstructorWebpage.php");
+
       }else {
-         $error = "Your Login Name or Password is invalid! Check username and/or password.";
+         $error = "Your Login Name or Password is invalid! Check username, password, and/or user type.";
       }
    }
 ?>
@@ -95,6 +97,9 @@
       <label><strong>Password:</strong></label> <br>
       <input type="password" name="password">
       <br>
+      <br>
+      <label><strong>Type of User (Instructor/TA/Student):</strong></label> <br>
+      <input type="text" name="type">
       <br>
       <input type="submit" value="Log In">
       <div style = "font-size:13px; color:white; margin-top:20px"><?php echo $error; ?></div>
