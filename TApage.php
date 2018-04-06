@@ -48,7 +48,7 @@
 </head>
 
 <body>
-  <span id="welcome">Welcome TA</span>
+  <span id="welcome">Welcome <?php echo $_SESSION["myusername"]; ?></span>
   <span id="sign_out"><a href = "index.php">Sign Out</a></span>
 
   <br>

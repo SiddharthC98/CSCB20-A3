@@ -48,17 +48,17 @@
 </head>
 
 <body>
-  <span id="welcome">Welcome Student</span>
+  <span id="welcome">Welcome <?php echo $_SESSION["myusername"]; ?></span>
   <span id="sign_out"><a href = "index.php">Sign Out</a></span>
 
   <br>
   <br>
 
-  <form method="post" action="viewmarks.php">
+  <form method="post" action="student_viewmarks.php">
     <input type="submit" name="sButton" value="View My Marks"><br>
   </form>
 
-  <form method="post" action="">
+  <form method="post" action="student_postfeedback.php">
     <input type="submit" name="sButton" value="Post Anonymous Feedback"><br>
   </form>
 

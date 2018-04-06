@@ -1,11 +1,12 @@
 <?php
   include ("database_connect.php");
   if($_SERVER["REQUEST_METHOD"] == "GET") {
-    $utorid = $_GET['utorid'];
-    $content = $_GET['content'];
-    $comments = $_GET['comments'];
+    $q1 = $_GET['q1'];
+    $q2 = $_GET['q2'];
+    $q3 = $_GET['q3'];
+    $q4 = $_GET['q4'];
 
-    $sql = "INSERT INTO remarkrequests (utorid,content,comments) VALUES ('$utorid','$content','$comments')";
+    $sql = "INSERT INTO anonfeedback (q1,q2,q3,q4) VALUES ('$q1','$q2','$q3','$q3')";
     $result = mysqli_query($db,$sql);
 
     if($result){
@@ -18,7 +19,7 @@
 
 <html>
 <head>
-  <title>Student Remaking Request Page</title>
+  <title>Post Feedback Page</title>
   <style>
     body {
       background-color: #c1d9ff;
@@ -55,19 +56,23 @@
 </head>
 
 <body>
-  <h1>Post a Remark Request</h1>
+  <h1>Post Feedback for the Professor</h1>
 
-  <form action="studentremarkingrequest.php" method="get">
-    <label><strong>UTORID:</strong></label><br>
-    <input type="text" name="utorid">
+  <form action="student_postfeedback.php" method="get">
+    <label><strong>What do you like about the instructor teaching?</strong></label><br>
+    <input type="text" name="q1">
     <br>
     <br>
-    <label><strong>Item to Remark:</strong></label><br>
-    <input type="text" name="content">
+    <label><strong> What do you recommend the instructor to do to improve their teaching?</strong></label><br>
+    <input type="text" name="q2">
     <br>
     <br>
-    <label><strong>Comments:</strong></label><br>
-    <input type="text" name="comments">
+    <label><strong>What do you like about the labs?</strong></label><br>
+    <input type="text" name="q3">
+    <br>
+    <br>
+    <label><strong>What do you recommend the lab instructors to do to improve their lab teaching?</strong></label><br>
+    <input type="text" name="q4">
     <br>
     <br>
     <input type="submit" value="Post" name="post">

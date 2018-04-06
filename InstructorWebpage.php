@@ -1,6 +1,5 @@
 <?php
   include('current_session.php');
-
 ?>
 
 <html>
@@ -51,7 +50,7 @@
 </head>
 
 <body>
-  <span id="welcome">Welcome Instructor</span>
+  <span id="welcome">Welcome <?php echo $_SESSION["myusername"]; ?> </span>
   <span id="sign_out"><a href = "index.php">Sign Out</a></span>
 
   <br>

@@ -29,21 +29,10 @@
 
 <body>
   <?php
-    $servername = "localhost";
-    $username = "SiddharthC";
-    $password = "NightHawk038";
-    $dbname = "cscb20a3";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    include ('database_connect.php')
 
     $sql = "SELECT * FROM marks";
-    $result = $conn->query($sql);
+    $result = $db->query($sql);
 
     if ($result->num_rows > 0) {
         // output data of each row

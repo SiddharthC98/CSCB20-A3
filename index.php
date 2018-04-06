@@ -5,8 +5,10 @@
    if($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // username and password sent from form
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
+
+      $_SESSION["myusername"] = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']);
+      $myusername = $_SESSION["myusername"];
 
       $sql = "SELECT * FROM logininfo WHERE username = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db,$sql);

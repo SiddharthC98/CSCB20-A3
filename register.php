@@ -1,19 +1,20 @@
 <?php
   include ("database_connect.php");
+  if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $user_type = $_POST['user_type'];
 
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  $user_type = $_POST['user_type'];
+    $sql = "INSERT INTO logininfo (username,password,type) VALUES ('$username','$password','$user_type')";
+    $result = mysqli_query($db,$sql);
 
-  $sql = "INSERT INTO logininfo (username,password,type) VALUES ('$username','$password','$user_type')";
-
-  mysqli_query($conn,$sql);
-
-  if(!mysqli_query($db,$sql)) {
-    $result = "Not Inserted";
-  }else {
-    $result = "Inserted";
+    if($result){
+      echo "Inserted";
+    }else {
+      echo "Not Inserted";
+    }
   }
+
 ?>
 
 <html>
