@@ -1,36 +1,44 @@
-create database cscb20;
-use cscb20;
+create database cscb20a3;
+use cscb20a3;
 
-create table users(
-	firstName varchar(120) NOT NULL,
-    lastName varchar(120) NOT NULL,
-    utorid varchar(8) NOT NULL,
-    email varchar(120) NOT NULL
-    );
-    
-create table marks(
-	id varchar(8) NOT NULL,
-    quiz1 numeric,
-    quiz2 numeric,
-    quiz3 numeric,
-    assignment1 numeric,
-    assignment2 numeric,
-    assignment3 numeric,
-    midterm numeric,
-    finalExam numeric,
-    practical numeric,
-    attendance numeric, #final Tutorial attendance mark
-    total numeric
-    );
-    
-create table anonFeedback(
-	q1 TEXT,
-    q2 TEXT,
-    q3 TEXT,
-    q4 TEXT
-    );
-drop table anonFeedback;
+CREATE TABLE `logininfo` (
+  `username` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
-insert into anonFeedback(q1,q2,q3,q4) values 
-	("hi", "makes fun of the goddess’s enthusiastic drinking. Ceres splashes her drink at the boy who metamorphoses into a creature with a 'body starred with many coloured spots', in other words, a spotted newt. The reason for the difference in punishments between Homer and Ovid’s poems can be attributed to the main theme of their respective collection of poems. The Homeric Hymns chooses to focus more on the worship of the Olympic gods and explain the rituals associated with them whereas Ovid is more fixed on the metamorphoses aspect of mythology.", "hi2", "h3i");
-    
+insert into logininfo values
+('chitales', 'hi', 2, 'Student'),
+('abbasatt', 'pw', 3, 'Instructor');
+
+CREATE TABLE `anonfeedback` (
+  `q1` varchar(2000) DEFAULT NULL,
+  `q2` varchar(2000) DEFAULT NULL,
+  `q3` varchar(2000) DEFAULT NULL,
+  `q4` varchar(2000) DEFAULT NULL,
+  `FeedbackNum` int(255) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`FeedbackNum`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `marks` (
+  `utorid` varchar(8) NOT NULL,
+  `quiz1` decimal(10,0) DEFAULT NULL,
+  `quiz2` decimal(10,0) DEFAULT NULL,
+  `quiz3` decimal(10,0) DEFAULT NULL,
+  `assignment1` decimal(10,0) DEFAULT NULL,
+  `assignment2` decimal(10,0) DEFAULT NULL,
+  `assignment3` decimal(10,0) DEFAULT NULL,
+  `midterm` decimal(10,0) DEFAULT NULL,
+  `finalExam` decimal(10,0) DEFAULT NULL,
+  `practical` decimal(10,0) DEFAULT NULL,
+  `attendance` decimal(10,0) DEFAULT NULL,
+  `total` decimal(10,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `remarkrequests` (
+  `utorid` varchar(8) NOT NULL,
+  `content` varchar(250) NOT NULL,
+  `comments` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
