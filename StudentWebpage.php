@@ -54,7 +54,7 @@
   <br>
   <br>
 
-  <form method="post" action="">
+  <form method="post" action="viewmarks.php">
     <input type="submit" name="sButton" value="View My Marks"><br>
   </form>
 

@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Anonymous Feedback Page</title>
+  <title>Marks Page</title>
   <style>
     body {
       background-color: #c1d9ff;
@@ -42,20 +42,27 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT FeedbackNum,q1,q2,q3,q4 FROM anonfeedback";
+    $sql = "SELECT * FROM marks";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-            echo "FEEDBACK " . $row["FeedbackNum"] . ":" . "<br>" .
-            "1) What do you like about the instructor teaching? "."<br>"."--". $row["q1"]. "<br>" .
-            "2) What do you recommend the instructor to do to improve their teaching? "."<br>" ."--". $row["q2"]. "<br>" .
-            "3) What do you like about the labs? "."<br>". "--" . $row["q3"]. "<br>".
-            "4) What do you recommend the lab instructors to do to improve their lab teaching? "."<br>"."--" . $row["q4"] . "<br>" . "<br>";
+            echo "<strong>UTORID:</strong> " . $row["utorid"] . "<br>" .
+            "<strong>Quiz 1:</strong> ". $row["quiz1"]. "<br>" .
+            "<strong>Quiz 2:</strong> ". $row["quiz2"]. "<br>".
+            "<strong>Quiz 3:</strong> ". $row["quiz3"]. "<br>" .
+            "<strong>Assignment 1:</strong> ". $row["assignment1"]. "<br>".
+            "<strong>Assignment 2:</strong> ". $row["assignment2"]. "<br>" .
+            "<strong>Assignment 3:</strong> ". $row["assignment3"]. "<br>".
+            "<strong>Midterm:</strong> ". $row["midterm"]. "<br>" .
+            "<strong>Final Exam:</strong> ". $row["finalExam"]. "<br>".
+            "<strong>Practicals:</strong> ". $row["practical"]. "<br>" .
+            "<strong>Attendance:</strong> ". $row["attendance"]. "<br>".
+            "<strong>Total:</strong> ". $row["total"]. "<br>"."<br>";
         }
     } else {
-        echo "No Feedback";
+        echo "No marks to display";
     }
   ?>
 

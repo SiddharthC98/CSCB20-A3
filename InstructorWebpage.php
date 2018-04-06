@@ -1,5 +1,6 @@
 <?php
   include('current_session.php');
+
 ?>
 
 <html>
@@ -56,7 +57,7 @@
   <br>
   <br>
 
-  <form method="post" action="">
+  <form method="post" action="Inst_viewmarks.php">
     <input type="submit" name="sButton" value="View Student Marks"><br>
   </form>
 
@@ -64,7 +65,7 @@
     <input type="submit" name="sButton" value="View Anonymous Feedback"><br>
   </form>
 
-  <form method="post" action="remarkingrequests.php">
+  <form method="post" action="Inst_remarkingrequests.php">
     <input type="submit" name="sButton" value="View Remark Requests"><br>
   </form>
 

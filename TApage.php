@@ -7,7 +7,7 @@
   <title>TA Page</title>
   <style>
     body {
-      background-color: #e3eaf4;
+      background-color: #c1d9ff;
     }
 
     #welcome {
@@ -16,53 +16,55 @@
 
     #sign_out {
       float: right;
+      text-decoration: none;
     }
 
     #welcome, #sign_out {
       font-size: 30px;
       font-weight: bold;
       font-family: Arial;
+      color: black
     }
 
-    .buttons {
-      width: 350px;
-      height: 420px;
-      color: #fff;
-      position: absolute;
-      box-sizing: border-box;
-    }
-
-    .buttons input[type="submit"] {
-      width: auto;
-      border: none;
-      outline: none;
-      height: 40px;
-      background: #1c8adb;
-      color: #fff;
-      font-size: 18px;
-      border-radius: 20px;
-      margin-top: 20px;
-    }
-
-    .buttons input[type="submit"]:hover {
+    input[type=submit] {
+      background-color: #1865e0;
+      border: 0%;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
       cursor: pointer;
-      background: #39dc79;
+      font-size: 20px;
+      font-family: arial;
+    }
+
+    input[type=submit]:hover {
+      background-color: #4CAF50;
       color: black;
     }
+
   </style>
+
 </head>
 
 <body>
   <span id="welcome">Welcome TA</span>
   <span id="sign_out"><a href = "index.php">Sign Out</a></span>
 
-  <div class="buttons">
-    <input type="submit" value="View Student Marks"> <br>
-    <br>
-    <input type="submit" value="View Remarking Requests"> <br>
-    <br>
-    <input type="submit" value="Edit Marks">
-  </div>
+  <br>
+  <br>
+
+  <form method="post" action="TA_viewmarks.php">
+    <input type="submit" name="sButton" value="View Student Marks"><br>
+  </form>
+
+  <form method="post" action="TA_remarkingrequests.php">
+    <input type="submit" name="sButton" value="View Remark Requests"><br>
+  </form>
+
+  <form method="post" action="">
+    <input type="submit" name="sButton" value="Edit Marks"><br>
+  </form>
 
 </body>
 </html>
