@@ -29,7 +29,7 @@
 
 <body>
   <?php
-    include ('database_connect.php')
+    include ('database_connect.php');
 
     $sql = "SELECT * FROM marks";
     $result = $db->query($sql);

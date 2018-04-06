@@ -1,27 +1,10 @@
-create database cscb20a3;
-use cscb20a3;
-
 CREATE TABLE `logininfo` (
   `username` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(250) NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
-
-insert into logininfo values
-('chitales', 'hi','Student'),
-('abbasatt', 'pw', 'Instructor');
-
-CREATE TABLE `anonfeedback` (
-  Instructor varchar(200) NOT NULL,
-  `q1` varchar(2000) DEFAULT NULL,
-  `q2` varchar(2000) DEFAULT NULL,
-  `q3` varchar(2000) DEFAULT NULL,
-  `q4` varchar(2000) DEFAULT NULL,
-  `FeedbackNum` int(255) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`FeedbackNum`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8
 
 CREATE TABLE `marks` (
   `utorid` varchar(8) NOT NULL,
@@ -35,12 +18,21 @@ CREATE TABLE `marks` (
   `finalExam` decimal(10,0) DEFAULT NULL,
   `practical` decimal(10,0) DEFAULT NULL,
   `attendance` decimal(10,0) DEFAULT NULL,
-  `total` decimal(10,0) DEFAULT NULL,
-  FOREIGN KEY (`utorid`) references `logininfo`(`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `total` decimal(10,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
-CREATE TABLE `remarkrequests` (
+CREATE TABLE `users` (
+  `firstName` varchar(120) NOT NULL,
+  `lastName` varchar(120) NOT NULL,
   `utorid` varchar(8) NOT NULL,
-  `content` varchar(250) NOT NULL,
-  `comments` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `email` varchar(120) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `anonfeedback` (
+  `q1` text,
+  `q2` text,
+  `q3` text,
+  `q4` text,
+  `FeedbackNum` int(255) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`FeedbackNum`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8
