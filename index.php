@@ -3,22 +3,29 @@
    session_start();
 
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form
 
+      // username and password sent from form
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
       $mypassword = mysqli_real_escape_string($db,$_POST['password']);
-      $mytype = mysqli_real_escape_string($db,$_POST['type']);
 
-      $sql = "SELECT id FROM logininfo WHERE username = '$myusername' and password = '$mypassword'";
+      $sql = "SELECT * FROM logininfo WHERE username = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $count = mysqli_num_rows($result);
 
-      // If result matched $myusername and $mypassword, table row must be 1 row
+      $_SESSION['type'] = $row['type'];
 
+      // If result matched $myusername and $mypassword, table row must be 1 row
       if($count == 1) {
-        $_SESSION['login_user'] = $myusername;
-        header("Location: InstructorWebpage.php");
+        if($_SESSION['type'] == "Instructor"){
+          header("Location: InstructorWebpage.php");
+        }
+        elseif($_SESSION['type'] == "TA"){
+          header("Location: TApage.php");
+        }
+        elseif($_SESSION['type'] == "Student"){
+          header("Location: StudentWebpage.php");
+        }
 
       }else {
          $error = "Your Login Name or Password is invalid! Check username, password, and/or user type.";
@@ -39,10 +46,9 @@
         padding: 0;
         z-index: -1;
       }
-
       .login-box {
         width: 350px;
-        height: 420px;
+        height: 470px;
         background: rgba(0,0,0,0.5);
         color: #fff;
         top: 50%;
@@ -51,21 +57,18 @@
         transform: translate(-50%,-50%);
         box-sizing: border-box;
         padding: 40px 30px;
+        overflow: auto;
       }
-
       h2 {
         text-align: center;
       }
-
       .login-box label {
         margin: 0;
         padding: 0;
       }
-
       .login-box input {
         width: 100%;
       }
-
       .login-box input[type="submit"] {
         width: 50%;
         border: none;
@@ -77,12 +80,33 @@
         border-radius: 20px;
         margin-top: 20px;
       }
-
       .login-box input[type="submit"]:hover {
         cursor: pointer;
         background: #39dc79;
         color: black;
       }
+
+      .login-box a:link, a:visited {
+        background-color: #1865e0;
+        font-family: Arial;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 20px;
+        margin-top: 20px;
+        padding: 14px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        border: none;
+        width: 32%;
+
+      }
+
+      .login-box a:hover, a:active {
+          background-color: #39dc79;
+          color: black;
+      }
+
     </style>
   </head>
 
@@ -98,12 +122,8 @@
       <input type="password" name="password">
       <br>
       <br>
-      <label><strong>Type of User (Instructor/TA/Student):</strong></label> <br>
-      <input type="radio" name="type" value="student" checked>Student<br>
-      <input type="radio" name="type" value="professor">Professor<br>
-      <input type="radio" name="type" value="TA">TA<br>
-      <br>
       <input type="submit" value="Log In">
+      <a href="./register.php">Register</a>
       <div style = "font-size:13px; color:white; margin-top:20px"><?php echo $error; ?></div>
     </form>
   </div>

@@ -4,7 +4,7 @@
 
 <html>
 <head>
-  <title>Instructor Page</title>
+  <title>Student Page</title>
   <style>
     body {
       background-color: #c1d9ff;
@@ -36,13 +36,11 @@
       cursor: pointer;
       font-size: 20px;
       font-family: arial;
-
     }
 
     input[type=submit]:hover {
       background-color: #4CAF50;
       color: black;
-
     }
 
   </style>
@@ -50,26 +48,22 @@
 </head>
 
 <body>
-  <span id="welcome">Welcome Instructor</span>
+  <span id="welcome">Welcome Student</span>
   <span id="sign_out"><a href = "index.php">Sign Out</a></span>
 
   <br>
   <br>
 
   <form method="post" action="">
-    <input type="submit" name="sButton" value="View Student Marks"><br>
-  </form>
-
-  <form method="post" action="anonymousfeedback.php">
-    <input type="submit" name="sButton" value="View Anonymous Feedback"><br>
-  </form>
-
-  <form method="post" action="remarkingrequests.php">
-    <input type="submit" name="sButton" value="View Remark Requests"><br>
+    <input type="submit" name="sButton" value="View My Marks"><br>
   </form>
 
   <form method="post" action="">
-    <input type="submit" name="sButton" value="Edit Marks"><br>
+    <input type="submit" name="sButton" value="Post Anonymous Feedback"><br>
+  </form>
+
+  <form method="post" action="studentremarkingrequest.php">
+    <input type="submit" name="sButton" value="Post a Remark Request"><br>
   </form>
 
 </body>

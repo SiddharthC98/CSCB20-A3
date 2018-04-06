@@ -12,7 +12,7 @@
 
 
    //important, see the header, which will force to login page if the _SESSION variable is not set.
-   if(!isset($_SESSION['login_user'])){
-      header("location:index.php");
-   }
+  // if(!isset($_SESSION['login_user'])){
+  //    header("location:index.php");
+  // }
 ?>

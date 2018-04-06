@@ -53,13 +53,11 @@
 </head>
 
 <body>
-  <span id="welcome">Welcome <?php echo $_SESSION['login_user']; ?></span>
+  <span id="welcome">Welcome TA</span>
   <span id="sign_out"><a href = "index.php">Sign Out</a></span>
 
   <div class="buttons">
     <input type="submit" value="View Student Marks"> <br>
-    <br>
-    <input type="submit" value="View Anonymous Feedback"> <br>
     <br>
     <input type="submit" value="View Remarking Requests"> <br>
     <br>
