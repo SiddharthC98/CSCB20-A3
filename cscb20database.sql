@@ -13,6 +13,7 @@ insert into logininfo values
 ('abbasatt', 'pw', 'Instructor');
 
 CREATE TABLE `anonfeedback` (
+  Instructor varchar(200) NOT NULL,
   `q1` varchar(2000) DEFAULT NULL,
   `q2` varchar(2000) DEFAULT NULL,
   `q3` varchar(2000) DEFAULT NULL,
@@ -20,6 +21,7 @@ CREATE TABLE `anonfeedback` (
   `FeedbackNum` int(255) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`FeedbackNum`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE `marks` (
   `utorid` varchar(8) NOT NULL,
@@ -36,8 +38,6 @@ CREATE TABLE `marks` (
   `total` decimal(10,0) DEFAULT NULL,
   FOREIGN KEY (`utorid`) references `logininfo`(`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-drop table `marks`;
 
 CREATE TABLE `remarkrequests` (
   `utorid` varchar(8) NOT NULL,
