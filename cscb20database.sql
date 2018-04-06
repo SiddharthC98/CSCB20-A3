@@ -4,14 +4,13 @@ use cscb20a3;
 CREATE TABLE `logininfo` (
   `username` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 insert into logininfo values
-('chitales', 'hi', 2, 'Student'),
-('abbasatt', 'pw', 3, 'Instructor');
+('chitales', 'hi','Student'),
+('abbasatt', 'pw', 'Instructor');
 
 CREATE TABLE `anonfeedback` (
   `q1` varchar(2000) DEFAULT NULL,
@@ -34,8 +33,11 @@ CREATE TABLE `marks` (
   `finalExam` decimal(10,0) DEFAULT NULL,
   `practical` decimal(10,0) DEFAULT NULL,
   `attendance` decimal(10,0) DEFAULT NULL,
-  `total` decimal(10,0) DEFAULT NULL
+  `total` decimal(10,0) DEFAULT NULL,
+  FOREIGN KEY (`utorid`) references `logininfo`(`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+drop table `marks`;
 
 CREATE TABLE `remarkrequests` (
   `utorid` varchar(8) NOT NULL,
